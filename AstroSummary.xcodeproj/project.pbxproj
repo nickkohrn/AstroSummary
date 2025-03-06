@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F9A4E5F22D79DEAF00AAE34B /* AstroSummaryCore in Resources */ = {isa = PBXBuildFile; fileRef = F9A4E5F12D79DEAF00AAE34B /* AstroSummaryCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F9A4E5C52D79DB8500AAE34B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		F9A4E5B32D79DB8300AAE34B /* AstroSummary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroSummary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A4E5C42D79DB8500AAE34B /* AstroSummaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroSummaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A4E5CE2D79DB8500AAE34B /* AstroSummaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroSummaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9A4E5F12D79DEAF00AAE34B /* AstroSummaryCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AstroSummaryCore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		F9A4E5AA2D79DB8300AAE34B = {
 			isa = PBXGroup;
 			children = (
+				F9A4E5F12D79DEAF00AAE34B /* AstroSummaryCore */,
 				F9A4E5B52D79DB8300AAE34B /* AstroSummary */,
 				F9A4E5C72D79DB8500AAE34B /* AstroSummaryTests */,
 				F9A4E5D12D79DB8500AAE34B /* AstroSummaryUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9A4E5F22D79DEAF00AAE34B /* AstroSummaryCore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
