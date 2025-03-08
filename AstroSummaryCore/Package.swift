@@ -8,6 +8,9 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
+            name: "FileClient",
+            targets: ["FileClient"]),
+        .library(
             name: "FoundationExtensions",
             targets: ["FoundationExtensions"]),
         .library(
@@ -17,6 +20,14 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
+        .target(
+            name: "FileClient",
+            dependencies: ["Models"]),
+        .testTarget(
+            name: "FileClientTests",
+            dependencies: ["FileClient",
+                           "Models"],
+            resources: [.copy("TestResources")]),
         .target(
             name: "FoundationExtensions"),
         .testTarget(
