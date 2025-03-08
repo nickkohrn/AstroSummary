@@ -1,6 +1,10 @@
 import Foundation
 
 public struct Session {
+    public static let biasCount = 500
+    public static let darkCount = 50
+    public static let flatCount = 20
+
     private let calendar: Calendar
     public let acquisitionDetails: AcquisitionDetails
     public let imageMetaData: [ImageMetaData]
@@ -91,6 +95,78 @@ public struct Session {
         let sum = imageMetaData.reduce(0.0) { $0 + $1.duration }
         return sum.isFinite ? Measurement(value: sum, unit: .seconds) : nil
     }
+
+    public var formattedDate: String {
+        guard let date else { return "--" }
+        return date.formatted(.dateTime.year().month().day())
+    }
+
+    public var formattedFilter: String {
+        filter ?? "--"
+    }
+
+    public var formattedNumber: String {
+        guard let exposures else { return "--" }
+        return exposures.formatted()
+    }
+
+    public var formattedDuration: String {
+        guard let exposureDurationSeconds else { return "--" }
+        return exposureDurationSeconds.formatted(.measurement(width: .abbreviated, usage: .asProvided, numberFormatStyle: .number.precision(.fractionLength(0...1))))
+    }
+
+    public var formattedBinning: String {
+        binning ?? "--"
+    }
+
+    public var formattedGain: String {
+        guard let gain else { return "--" }
+        return gain.formatted()
+    }
+
+    public var formattedCooling: String {
+        guard let targetCameraTemperature else { return "--" }
+        return targetCameraTemperature.formatted(.measurement(width: .abbreviated, usage: .asProvided, numberFormatStyle: .number.precision(.fractionLength(0...1))))
+    }
+
+    public var formattedMeanFWHM: String {
+        guard let meanFWHM else { return "--" }
+        return meanFWHM.formatted(.number.precision(.fractionLength(0...1)))
+    }
+
+    public var formattedTemperature: String {
+        guard let averageAmbientTemperature else { return "--" }
+        return averageAmbientTemperature.formatted(.measurement(width: .abbreviated, usage: .asProvided, numberFormatStyle: .number.precision(.fractionLength(0...1))))
+    }
+
+    public var formattedBiasCount: String {
+        Session.biasCount.formatted()
+    }
+
+    public var formattedDarkCount: String {
+        Session.darkCount.formatted()
+    }
+
+    public var formattedFlatCount: String {
+        Session.flatCount.formatted()
+    }
 }
 
 extension Session: Equatable {}
+
+extension Session: Identifiable {
+    public var id: String {
+        formattedDate
+        + formattedFilter
+        + formattedNumber
+        + formattedDuration
+        + formattedBinning
+        + formattedGain
+        + formattedCooling
+        + formattedMeanFWHM
+        + formattedTemperature
+        + formattedBiasCount
+        + formattedDarkCount
+        + formattedFlatCount
+    }
+}

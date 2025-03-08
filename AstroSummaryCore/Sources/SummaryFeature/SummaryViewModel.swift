@@ -12,11 +12,32 @@ public final class SummaryViewModel {
         case error
     }
 
+    public enum Tab: Equatable {
+        case darks
+        case sessions
+        case stats
+    }
+
+    public var disableClearButton: Bool {
+        switch state {
+        case .error: true
+        case .initial: true
+        case .loaded(_, let summary): summary.sessions.isEmpty
+        case .loading: true
+        }
+    }
+
     public private(set) var state = State.initial
 
     public var showFileImporter = false
 
+    public var selectedTab = Tab.darks
+
     public init() {}
+
+    public func clickedClearButton() {
+        state = .initial
+    }
 
     public func clickedOpenButton() {
         showFileImporter = true
@@ -26,9 +47,8 @@ public final class SummaryViewModel {
         state = .loading
         switch result {
         case .success(let url):
-            print(url)
             do {
-                let summary = try FileClient().createSummary(from: url)
+                let summary = try SummaryLoader(rootDirectory: url).createSummary()
                 state = .loaded(url, summary)
             } catch {
                 print(error)
