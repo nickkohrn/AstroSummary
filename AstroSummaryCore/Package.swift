@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "AstroSummaryCore",
+    platforms: [
+        .macOS(.v15)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -15,7 +18,10 @@ let package = Package(
             targets: ["FoundationExtensions"]),
         .library(
             name: "Models",
-            targets: ["Models"])
+            targets: ["Models"]),
+        .library(
+            name: "SummaryFeature",
+            targets: ["SummaryFeature"])
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -40,5 +46,9 @@ let package = Package(
             name: "ModelsTests",
             dependencies: ["FoundationExtensions",
                            "Models"]),
+        .target(
+            name: "SummaryFeature",
+            dependencies: ["FileClient",
+                          "Models"]),
     ]
 )

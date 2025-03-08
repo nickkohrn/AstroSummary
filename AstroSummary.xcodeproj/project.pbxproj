@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F9A4E5F22D79DEAF00AAE34B /* AstroSummaryCore in Resources */ = {isa = PBXBuildFile; fileRef = F9A4E5F12D79DEAF00AAE34B /* AstroSummaryCore */; };
+		F9F9BF582D7CE8DB006A4A03 /* SummaryFeature in Frameworks */ = {isa = PBXBuildFile; productRef = F9F9BF572D7CE8DB006A4A03 /* SummaryFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9F9BF582D7CE8DB006A4A03 /* SummaryFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 				F9A4E5B52D79DB8300AAE34B /* AstroSummary */,
 				F9A4E5C72D79DB8500AAE34B /* AstroSummaryTests */,
 				F9A4E5D12D79DB8500AAE34B /* AstroSummaryUITests */,
+				F9F9BF562D7CE8DB006A4A03 /* Frameworks */,
 				F9A4E5B42D79DB8300AAE34B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +99,13 @@
 				F9A4E5CE2D79DB8500AAE34B /* AstroSummaryUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F9F9BF562D7CE8DB006A4A03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +128,7 @@
 			);
 			name = AstroSummary;
 			packageProductDependencies = (
+				F9F9BF572D7CE8DB006A4A03 /* SummaryFeature */,
 			);
 			productName = AstroSummary;
 			productReference = F9A4E5B32D79DB8300AAE34B /* AstroSummary.app */;
@@ -556,6 +567,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9F9BF572D7CE8DB006A4A03 /* SummaryFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SummaryFeature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F9A4E5AB2D79DB8300AAE34B /* Project object */;
 }
